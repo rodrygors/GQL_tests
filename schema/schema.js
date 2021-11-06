@@ -1,5 +1,6 @@
 const graphql = require('graphql');
-const _ = require('lodash')
+const Article = require('../models/article');
+const Contributor = require('../models/contributor');
 const {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList, GraphQLSchema} = graphql;
 
 let articles = [
@@ -25,7 +26,7 @@ const ArticleType = new GraphQLObjectType({
         contributor: {
             type: ContributorType,
             resolve(parent, args){
-                return _.find(contributors, {id: parent.contributorId})
+                return Contributor.findById(args.id)
             }
         }
     })
@@ -41,7 +42,7 @@ const ContributorType = new GraphQLObjectType({
         articles:{
             type: new GraphQLList(ArticleType),
             resolve(parent, args){
-                return _.filter(articles, {contributorId:parent.id})
+                Article.find({contributorId:parent.id})
             }
         }
     })
@@ -69,14 +70,14 @@ const RootQuery = new GraphQLObjectType({
             type:ArticleType,
             args: {id: {type: GraphQLID}},
             resolve(parent, args){
-                return _.find(articles, {'id':args.id})
+                Article.findById(args.id)
             }
         },
         contributor: {
             type:ContributorType,
             args: {id: {type: GraphQLID}},
             resolve(parent, args){
-                return _.find(contributors, {'id':args.id})
+                Contributor.findById(parent.contributorId)
             }
         }
     }
