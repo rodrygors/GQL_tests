@@ -18,6 +18,8 @@
   "homepage": "https://github.com/rodrygors/GQL_tests#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.7.2",
     "nodemon": "^2.0.14"
   }
 }
