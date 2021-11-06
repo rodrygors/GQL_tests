@@ -1,0 +1,22 @@
+{
+  "name": "gql_tests",
+  "version": "1.0.0",
+  "description": "GraphQL tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrygors/GQL_tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrygors/GQL_tests/issues"
+  },
+  "homepage": "https://github.com/rodrygors/GQL_tests#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
